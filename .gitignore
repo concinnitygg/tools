@@ -1,0 +1,9 @@
+.*
+!/.git*
+
+/dist/
+/logs/
+/tmp/
+/venv/
+
+__pycache__/
