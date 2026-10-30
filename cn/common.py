@@ -27,6 +27,11 @@ def add_launch(parser):
     parser.add_argument("--quality", help="graphics-quality preset")
     parser.add_argument("--out", type=Path, help="output directory (default: tmp/cn/<command>)")
     parser.add_argument("--timeout", type=float, default=launch.TIMEOUT, help="hard cap per launch, seconds")
+    parser.add_argument(
+        "--hud",
+        action="store_true",
+        help="show the stats HUD (default: hidden, so captures and timings leave it out)",
+    )
 
 
 def add_binary(parser):

@@ -13,7 +13,7 @@ class ArgvTests(unittest.TestCase):
     def test_a_bare_launch_benches_the_world_into_its_out_dir(self):
         self.assertEqual(
             launch.argv(_launch("/o")),
-            ["bench", "-f", "/w/showcase.jsonl", "--screenshots-dir", "/o"],
+            ["bench", "-f", "/w/showcase.jsonl", "--screenshots-dir", "/o", "--no-hud"],
         )
 
     def test_every_option_maps_to_its_flag(self):
@@ -29,7 +29,7 @@ class ArgvTests(unittest.TestCase):
             )
         )
         self.assertEqual(
-            args[5:],
+            args[6:],
             [
                 "--stop-at", "4.5",
                 "--screenshot-at", "4:a.png",
@@ -40,6 +40,10 @@ class ArgvTests(unittest.TestCase):
                 "--hide-pass", "ssao",
             ],
         )
+
+    def test_the_hud_shows_only_when_asked(self):
+        self.assertIn("--hud", launch.argv(_launch("/o", hud=True)))
+        self.assertNotIn("--no-hud", launch.argv(_launch("/o", hud=True)))
 
     def test_validation_on_is_the_positive_switch(self):
         self.assertIn("--graphics-validation", launch.argv(_launch("/o", validation=True)))

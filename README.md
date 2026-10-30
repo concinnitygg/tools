@@ -17,13 +17,13 @@ Scripts for building and testing the engine.
 | ------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `capture WORLD...`        | Saves the frame `--at` seconds in (default 4) and fails on a nonzero exit, a panic, an engine assertion, any validation message, or a missing screenshot.           |
 | `bench WORLD...`          | Runs each benchmark with validation off; prints each run's whole-run row and saves the parsed reports to `bench.json`. A run that measured nothing is INCONCLUSIVE. |
-| `snapshot NAME`           | Copies the files git would track to `tmp/cn/snapshots/NAME`. Take one before changing code.                                                                      |
+| `snapshot NAME`           | Copies the files git would track to `tmp/cn/snapshots/NAME`. Take one before changing code.                                                                         |
 | `ab WORLD... --base NAME` | Builds the snapshot and the checkout, alternates benchmark runs between them, and reports the image score of their frames and the change in median frame costs.     |
-| `diff A B`                | Scores two PNGs, or the same-named PNGs of two directories, leaving out the stat HUD's rows.                                                                        |
+| `diff A B`                | Scores two PNGs, or the same-named PNGs of two directories. Launches made by `cn` hide the stats HUD unless given `--hud`.                                          |
 
 Commands that run worlds build `target/debug/concinnity` first unless `--bin`
-names a binary, and take `--api` and `--quality`. Any other `cn` launch flag
-follows a `--`:
+names a binary, and take `--api`, `--quality` and `--hud` (the stats HUD is
+hidden otherwise). Any other `cn` launch flag follows a `--`:
 
 ```
 python3 cn.py capture worlds/showcase.jsonl

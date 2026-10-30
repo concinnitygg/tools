@@ -30,6 +30,7 @@ def launch_for(world, binary, out, opts, repeat):
         graphics_api=opts.api,
         graphics_quality=opts.quality,
         validation=False,
+        hud=opts.hud,
         flags=opts.flags,
         log_name=f"{world.stem}-{repeat}.log",
         timeout=opts.timeout,

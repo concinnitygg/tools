@@ -42,6 +42,7 @@ def launch_for(world, binary, out, opts):
         graphics_api=opts.api,
         graphics_quality=opts.quality,
         validation=opts.validation,
+        hud=opts.hud,
         flags=opts.flags,
         log_name=f"{world.stem}.log",
         timeout=opts.timeout,

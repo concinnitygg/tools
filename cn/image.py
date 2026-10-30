@@ -13,11 +13,6 @@ _CHANNELS = {0: 1, 2: 3, 4: 2, 6: 4}
 # A channel difference at or under this many levels is noise, not a change.
 NOISE_LEVELS = 2
 
-# Rows at the top left out of a score by default: a benchmark draws its live
-# stat chips there, which differ in every run.
-HUD_ROWS = 96
-
-
 def read_png(path):
     """`(width, height, channels, bytes)` of an 8-bit non-interlaced PNG."""
     with open(path, "rb") as f:
@@ -87,7 +82,7 @@ def write_png(path, width, height, channels, pixels):
         f.write(_SIGNATURE + chunk(b"IHDR", header) + chunk(b"IDAT", zlib.compress(raw)) + chunk(b"IEND", b""))
 
 
-def score(a_path, b_path, skip_rows=HUD_ROWS):
+def score(a_path, b_path, skip_rows=0):
     """`{"rmse", "changed", "max"}` between two captures below their first
     `skip_rows` rows, or None when their sizes differ. `rmse` is 0..1 over the
     color channels; `changed` counts pixels differing by more than

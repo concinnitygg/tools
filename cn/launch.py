@@ -40,6 +40,9 @@ class Launch:
     graphics_api: str = None
     graphics_quality: str = None
     validation: bool = None
+    # Whether the stats HUD shows. Off by default: captures stay comparable and
+    # frames are timed without it.
+    hud: bool = False
     # Further launch flags, passed through as given.
     flags: list = field(default_factory=list)
     log_name: str = "run.log"
@@ -73,6 +76,7 @@ def seconds_arg(seconds):
 def argv(launch):
     """The `cn` arguments `launch` runs with."""
     args = ["bench", "-f", str(launch.world), "--screenshots-dir", str(launch.out)]
+    args.append("--hud" if launch.hud else "--no-hud")
     if launch.stop_at is not None:
         args += ["--stop-at", seconds_arg(launch.stop_at)]
     for seconds, name in launch.shots:

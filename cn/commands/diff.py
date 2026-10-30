@@ -1,8 +1,9 @@
 """diff: score PNG captures against each other.
 
-Takes two files, or two directories whose same-named PNGs are paired. Prints,
-below the stat HUD's rows, the RMSE (0..1), the pixels that changed by more
-than noise, and the largest channel difference.
+Takes two files, or two directories whose same-named PNGs are paired. Prints
+the RMSE (0..1), the pixels that changed by more than noise, and the largest
+channel difference. Launches made by these tools hide the stats HUD unless
+given `--hud`, so their captures carry no stat chips to leave out.
 """
 
 from pathlib import Path
@@ -19,8 +20,8 @@ def add_parser(sub):
     parser.add_argument(
         "--skip-rows",
         type=int,
-        default=image.HUD_ROWS,
-        help="rows at the top left out, where the stat HUD draws (default %(default)s)",
+        default=0,
+        help="rows at the top left out, for captures that show the stat HUD (default %(default)s)",
     )
     parser.set_defaults(run=run)
 
