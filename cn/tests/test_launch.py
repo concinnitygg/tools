@@ -57,12 +57,12 @@ class PrepareCwdTests(unittest.TestCase):
             settings = cwd / launch.SETTINGS
             settings.parent.mkdir(parents=True)
             settings.write_text("upscaling=on")
-            (cwd / ".concinnity" / "shader-cache").write_text("kept")
+            (cwd / "cache").write_text("kept")
             launch.prepare_cwd(repo, cwd)
             self.assertTrue((cwd / "assets").is_symlink())
             self.assertFalse((cwd / "worlds").exists())
             self.assertFalse(settings.exists())
-            self.assertTrue((cwd / ".concinnity" / "shader-cache").exists())
+            self.assertTrue((cwd / "cache").exists())
             launch.prepare_cwd(repo, cwd)
             self.assertTrue((cwd / "assets").is_symlink())
 

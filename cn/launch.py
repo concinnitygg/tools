@@ -22,7 +22,7 @@ from . import fs, logscan, proc, report, verdict
 LINKED = ("assets", "worlds", "examples")
 
 # What a run persists from one launch to the next under its cwd.
-SETTINGS = Path(".concinnity") / "settings"
+SETTINGS = Path("settings")
 
 # The first launch bakes a 4K HDRI and compiles every pipeline cold, so the cap
 # is generous: the failures it guards against are hangs, not slow starts.
