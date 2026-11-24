@@ -6,10 +6,10 @@ from . import common, verdict
 from .commands import ALL
 
 DESCRIPTION = """\
-Test tools for the engine, run on this machine. Every world runs through its
+Test tools for the engine, run on this machine. Every file runs through its
 benchmark (`cn bench`), which ends by itself; one client runs at a time, under
 a hard timeout, and is verified dead afterwards. Launch flags for `cn` follow
-a `--`, e.g. `capture worlds/showcase.jsonl -- --hide-pass ssao`.
+a `--`, e.g. `capture showcase.jsonl -- --hide-pass ssao`.
 """
 
 

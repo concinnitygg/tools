@@ -18,7 +18,7 @@ from pathlib import Path
 
 from . import fs, logscan, proc, report, verdict
 
-# Repository directories a world names its files under, relative to the cwd.
+# Repository directories a .jsonl file names its files under, relative to the cwd.
 LINKED = ("assets", "worlds", "examples")
 
 # What a run persists from one launch to the next under its cwd.

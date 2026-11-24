@@ -22,7 +22,7 @@ def add_repo(parser):
 
 def add_launch(parser):
     add_repo(parser)
-    parser.add_argument("worlds", nargs="+", type=Path, help="world JSONL files")
+    parser.add_argument("worlds", nargs="+", type=Path, help=".jsonl files to run")
     parser.add_argument("--api", help="graphics API (default: the platform's native one)")
     parser.add_argument("--quality", help="graphics-quality preset")
     parser.add_argument("--out", type=Path, help="output directory (default: tmp/cn/<command>)")
